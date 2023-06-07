@@ -89,7 +89,6 @@ namespace conexion
                 cmd.Parameters.Add(new MySqlParameter("@b2", b2));
                 cnx.Open();
                 MySqlDataReader lector = cmd.ExecuteReader();
-                MessageBox.Show("Datos guardados");
             }
             catch (Exception ex)
             {
@@ -189,7 +188,7 @@ namespace conexion
                     mmR = mmR / 100;
                     mmG = mmG / 100;
                     mmB = mmB / 100;
-                    bool bandera = false;
+                    bool sw = false;
                     for (int k = 0; k < dt.Rows.Count; k++)
                     {
                         RR = int.Parse(dt.Rows[k][1].ToString());
@@ -206,11 +205,11 @@ namespace conexion
                                 for (int j2 = j; j2 < j + 10; j2++)
                                 {
                                     bmp2.SetPixel(i2, j2, Color.FromArgb(RBD, GBD, BBD));
-                                    bandera = true;
+                                    sw = true;
                                 }
                         }
                     }
-                    if (!bandera)
+                    if (!sw)
                     {
                         for (int i2 = i; i2 < i + 10; i2++)
                             for (int j2 = j; j2 < j + 10; j2++)
